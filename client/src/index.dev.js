@@ -1,21 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './app';
+import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
+import App from './view/app';
+import store from './store/store';
 import 'babel-polyfill';
 
 const renderDOM = Component => {
   render(
     <AppContainer>
-      <Component />
+      <Provider store={store}>
+        <Component />
+      </Provider>
     </AppContainer>,
     document.getElementById('app')
   )
 }
 renderDOM(App);
 if (module.hot) {
-  module.hot.accept('./app', () => {
-    const App = require('./app').default;
+  module.hot.accept('./view/app.js', () => {
+    const App = require('./view/app.js').default;
     renderDOM(App);
   })
 }

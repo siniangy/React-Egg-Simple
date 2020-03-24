@@ -1,0 +1,1 @@
+export const FETCH_NAME = 'fetch_name';
