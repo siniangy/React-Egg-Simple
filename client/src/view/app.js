@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { getName } from '../store/action/name';
-import axios from '../util/axios';
 
-// const mapStateToProps = (state) => {
-//   let { allData } = state;
-//   return { allData }
-// }
-// const mapDispatchToProps = {
-//   getName
-// }
+const mapStateToProps = (state) => {
+  let { allData } = state;
+  return { allData }
+}
+const mapDispatchToProps = {
+  getName
+}
 
 class App extends Component {
   constructor(props) {
@@ -18,22 +18,16 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    console.log(1111);
-    // getName().then((res) => {
-    //   console.log(res);
-    // });
-    // axios.get('/name')
-    // .then((res) => {console.log(res)})
-    // .catch((err) => {console.log(err)});
+    this.props.getName()
   }
   render() {
+    let targetName = this.props.allData.contents.name;
     return (
       <div>
-        <h1>Hello Webpack</h1>
+        <h1>Hello {targetName}</h1>
       </div>
     );
   }
 }
 
-export default APP
-// export default connect(mapStateToProps, mapDispatchToProps)(APP);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

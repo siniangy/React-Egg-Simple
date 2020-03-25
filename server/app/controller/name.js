@@ -3,11 +3,12 @@
 const Controller = require('egg').Controller;
 
 class NameController extends Controller {
-  async Getname() {
+  async getName() {
     const { ctx } = this;
-    const name = await ctx.service.name.Getname();
+    const name = await ctx.service.name.getName();
     ctx.body = {
       code: 0,
+      status: 200,
       data: name,
     };
   }

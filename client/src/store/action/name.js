@@ -11,7 +11,6 @@ export function upDateName(data) {
 
 export const getName = () => (dispatch, getState, resolve, reject) => {
   axios.get('/name').then((res) => {
-    console.log(res);
     dispatch(upDateName(res.data));
     resolve(true);
   }).catch(() => {
