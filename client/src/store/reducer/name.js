@@ -1,7 +1,7 @@
 import * as Type from '../type/type';
 
 const initialState = {
-  contents: {}
+  contents: []
 }
 export default function (state = initialState, action) {
   switch (action.type) {

@@ -21,10 +21,16 @@ class App extends Component {
     this.props.getName()
   }
   render() {
-    let targetName = this.props.allData.contents.name;
+    const nameList = this.props.allData.contents.map((val, index) => {
+      return <li key={index}>
+        {val.id} : {val.user_name}
+      </li>
+    })
     return (
       <div>
-        <h1>Hello {targetName}</h1>
+        <ul>
+          {nameList}
+        </ul>
       </div>
     );
   }

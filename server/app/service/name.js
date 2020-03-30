@@ -4,8 +4,14 @@ const Service = require('egg').Service;
 
 class NameService extends Service {
   async getName() {
-    const name = await this.ctx.curl('http://127.0.0.1:7001/public/data/name.json', { dataType: 'json' });
-    return name.data;
+    const { app } = this;
+    try {
+      const res = await app.mysql.select('user');
+      return res;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
   }
 }
 
