@@ -13,7 +13,7 @@ module.exports = appInfo => {
   const config = exports = {
     security: {
       csrf: {
-        enable: true,
+        enable: false,
         ignoreJSON: true,
       },
       domainWhiteList: [ '*' ],
