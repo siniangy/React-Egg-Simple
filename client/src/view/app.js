@@ -1,39 +1,47 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getName } from '../store/action/name';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+import GetName from './getname';
+import PutName from './putname';
 
-const mapStateToProps = (state) => {
-  let { allData } = state;
-  return { allData }
-}
-const mapDispatchToProps = {
-  getName
-}
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
-  componentDidMount() {
-    this.props.getName()
-  }
   render() {
-    const nameList = this.props.allData.contents.map((val, index) => {
-      return <li key={index}>
-        {val.id} : {val.user_name}
-      </li>
-    })
     return (
       <div>
-        <ul>
-          {nameList}
-        </ul>
+        <hr />
+
+        <Router>
+          <ul>
+            <li>
+              <Link to="/getname">GET</Link>
+            </li>
+            <li>
+              <Link to="/putname">PUT</Link>
+            </li>
+          </ul>
+
+          <hr />
+
+          <Switch>
+            <Route exact path="/">
+              <h1>这里是首页</h1>
+            </Route>
+            <Route path="/getname">
+              <GetName />
+            </Route>
+            <Route path="/putname">
+              <PutName />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

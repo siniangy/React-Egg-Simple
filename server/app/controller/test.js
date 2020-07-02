@@ -2,10 +2,10 @@
 
 const Controller = require('egg').Controller;
 
-class NameController extends Controller {
+class TestController extends Controller {
   async getName() {
     const { ctx } = this;
-    const res = await ctx.service.name.getName();
+    const res = await ctx.service.test.getName();
     if (res) {
       ctx.body = {
         status: 200,
@@ -21,4 +21,4 @@ class NameController extends Controller {
   }
 }
 
-module.exports = NameController;
+module.exports = TestController;

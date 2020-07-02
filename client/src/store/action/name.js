@@ -10,7 +10,7 @@ export function upDateName(data) {
 }
 
 export const getName = () => (dispatch, getState, resolve, reject) => {
-  axios.get('/name').then((res) => {
+  axios.get('/getdata').then((res) => {
     dispatch(upDateName(res.data));
     resolve(true);
   }).catch(() => {

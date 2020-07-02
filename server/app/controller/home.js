@@ -7,12 +7,12 @@ class HomeController extends Controller {
     const { ctx } = this;
     ctx.body = 'hi, egg';
   }
-  async get() {
+  async get() { // localhost:7001/get?name='test'
     const { ctx } = this;
     const { name } = ctx.query;
     ctx.body = name;
   }
-  async add() {
+  async put() { // localhost:7001
     const { ctx } = this;
     const { title, content } = ctx.request.body;
     ctx.body = {
