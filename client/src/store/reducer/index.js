@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import getNameReducer from './name';
+import getNameReducer from './test';
 
 export default combineReducers({
-  allData: getNameReducer
+  allData: getNameReducer 
 })

@@ -18,11 +18,19 @@ class TestController extends Controller {
       };
     }
   }
+
   async putData() { // localhost:7001/putdata
     const { ctx } = this;
+    /** 要插入数据库的数据举例
+     {
+       "user_name": "leslie",
+       "create_date": "2020-7-3"
+     }
+     */
     const params = {
       ...ctx.request.body,
     };
+    console.log(params);
     const res = await ctx.service.test.putData(params);
     if (res) {
       ctx.body = {

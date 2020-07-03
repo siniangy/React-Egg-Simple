@@ -5,7 +5,7 @@ const initialState = {
 }
 export default function (state = initialState, action) {
   switch (action.type) {
-    case Type.FETCH_NAME:
+    case Type.FETCH_DATA:
       return {
         ...state,
         contents: action.payload
