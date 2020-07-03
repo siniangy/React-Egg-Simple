@@ -12,7 +12,7 @@ class HomeController extends Controller {
     const { name } = ctx.query;
     ctx.body = name;
   }
-  async put() { // localhost:7001
+  async put() { // localhost:7001/put
     const { ctx } = this;
     const { title, content } = ctx.request.body;
     ctx.body = {

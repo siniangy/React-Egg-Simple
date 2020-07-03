@@ -8,5 +8,6 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.get('/get', controller.home.get);
   router.post('/put', controller.home.put);
-  router.get('/getdata', controller.test.getName);
+  router.get('/getdata', controller.test.getData);
+  router.post('/putdata', controller.test.putData);
 };
