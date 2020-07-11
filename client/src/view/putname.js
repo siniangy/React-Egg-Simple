@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { putData } from '../store/action/test';
+import { Input, Button } from 'antd';
 
 const mapStateToProps = (state) => {
   let { allData } = state;
@@ -37,10 +38,10 @@ class Putname extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{ marginLeft: '40px' }}>
         <h1>这里往数据库里装数据</h1>
-        <input type="text" onChange={(e) => this.handleInputChange(e)}></input>
-        <button style={{ marginLeft: '10px' }} onClick={() => this.handleSubmit()}>Submit</button>
+        <Input style={{ width: '120px' }} onChange={(e) => this.handleInputChange(e)} />
+        <Button style={{ marginLeft: '10px' }} onClick={() => this.handleSubmit()}>Submit</Button>
       </div>
     );
   }

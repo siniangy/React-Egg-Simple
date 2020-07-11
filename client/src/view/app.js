@@ -5,9 +5,10 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import { Button, Skeleton } from 'antd';
+import "antd/dist/antd.css";
 import GetName from './getname';
 import PutName from './putname';
-
 
 class App extends Component {
   render() {
@@ -16,20 +17,22 @@ class App extends Component {
         <hr />
 
         <Router>
-          <ul>
-            <li>
-              <Link to="/getname">GET</Link>
+          <ul style={{ listStyle: 'none' }}>
+            <li style={{ display: 'inline-block' }}>
+              <Link to="/"><Button>Home</Button></Link>
             </li>
-            <li>
-              <Link to="/putname">PUT</Link>
+            <li style={{ display: 'inline-block', marginLeft: '30px' }}>
+              <Link to="/getname"><Button>GET</Button></Link>
+            </li>
+            <li style={{ display: 'inline-block', marginLeft: '30px' }} >
+              <Link to="/putname"><Button>PUT</Button></Link>
             </li>
           </ul>
-
           <hr />
-
           <Switch>
             <Route exact path="/">
               <h1>这里是首页</h1>
+              <Skeleton />
             </Route>
             <Route path="/getname">
               <GetName />

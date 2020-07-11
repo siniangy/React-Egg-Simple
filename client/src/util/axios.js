@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = process.env.NODE_ENV == 'development' ? '//127.0.0.1:7001' : '';
+axios.defaults.baseURL = process.env.NODE_ENV == 'development' ? '//127.0.0.1:7001' : '//127.0.0.1:7001';
 
 axios.defaults.withCredentials = false
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'

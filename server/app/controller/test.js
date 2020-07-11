@@ -3,13 +3,14 @@
 const Controller = require('egg').Controller;
 
 class TestController extends Controller {
-  async getData() { // localhost:7001/getdata
+
+  async getDataFromDatabase() {
     const { ctx } = this;
-    const res = await ctx.service.test.getData();
+    const res = await ctx.service.test.getDataFromDatabase();
     if (res) {
       ctx.body = {
         status: 200,
-        data: res, // sql查询到的res返回一个数组
+        data: res,
       };
     } else {
       ctx.body = {
@@ -19,19 +20,13 @@ class TestController extends Controller {
     }
   }
 
-  async putData() { // localhost:7001/putdata
+  async putDataIntoDatabase() {
     const { ctx } = this;
-    /** 要插入数据库的数据举例
-     {
-       "user_name": "leslie",
-       "create_date": "2020-7-3"
-     }
-     */
     const params = {
       ...ctx.request.body,
     };
     console.log(params);
-    const res = await ctx.service.test.putData(params);
+    const res = await ctx.service.test.putDataIntoDatabase(params);
     if (res) {
       ctx.body = {
         status: 200,
