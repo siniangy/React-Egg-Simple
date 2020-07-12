@@ -17,4 +17,12 @@ npm run dev
 cd client
 cnpm i
 npm run dev
+
+// or
+cnpm i -g server
+npm run build
+cd dist
+serve
 ```
+
+## 3：webpack打包dist体积蛮大的，待优化

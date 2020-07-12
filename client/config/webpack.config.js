@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 
+/**
+ * 开发环境和生产环境公共配置
+ */
 module.exports = {
   entry: {
     app: [
@@ -8,6 +11,9 @@ module.exports = {
       path.resolve(__dirname, '../src/index.dev.js')
     ],
     vendor: ['react', 'react-dom', 'babel-polyfill']
+  },
+  resolve: {
+    modules: [path.resolve(__dirname, '../node_modules/')],
   },
   output: {
     path: path.resolve(__dirname, '../dist'),

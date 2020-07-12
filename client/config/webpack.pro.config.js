@@ -7,6 +7,9 @@ const webpackConfig = require('./webpack.config');
 
 process.env.NODE_ENV = 'production';
 
+/**
+ * 生产环境
+ */
 module.exports = merge(webpackConfig, {
   entry: [
     'babel-polyfill',
@@ -22,7 +25,7 @@ module.exports = merge(webpackConfig, {
       }
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),

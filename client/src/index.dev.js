@@ -17,6 +17,10 @@ const renderDOM = Component => {
   )
 }
 renderDOM(App);
+
+/**
+ * 热更新相关，开发环境所需
+ */
 if (module.hot) {
   module.hot.accept('./view/app.js', () => {
     const App = require('./view/app.js').default;
